@@ -15,3 +15,7 @@ dependencyResolutionManagement {
 rootProject.name = "Ecommerce"
 include(":app")
 include(":buildsSrc")
+include(":common")
+include(":main")
+include(":main:api")
+include(":main:impl")

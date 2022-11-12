@@ -1,4 +1,4 @@
-package com.firdavs.ecommerce.ui.theme
+package com.firdavs.common.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

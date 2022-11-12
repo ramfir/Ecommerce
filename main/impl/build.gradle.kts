@@ -1,20 +1,13 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
+    // Precompiled plugin with the base android configuration.
+    // Declared in buildSrc/.../android-config.gradle.kts.
     `android-config`
 }
 
 android {
-    defaultConfig {
-        applicationId = "com.firdavs.ecommerce"
-        versionCode = 1
-        versionName = "1.0"
-
-        vectorDrawables {
-            useSupportLibrary = true
-        }
-    }
     // ===== compose =====
     buildFeatures.compose = true
     composeOptions {
@@ -23,8 +16,9 @@ android {
 }
 
 dependencies {
-    implementation(project(":main:impl"))
+    api(project(":main:api"))
     implementation(project(":common"))
+
     // ===== android =====
     implementation(libs.android)
 
@@ -34,10 +28,6 @@ dependencies {
     // ===== dagger =====
     implementation(libs.dagger)
     kapt(libs.daggerCompiler)
-
-    // ===== test =====
-    testImplementation(libs.unitTests)
-    androidTestImplementation(libs.androidTests)
 
     // ===== debug =====
     debugImplementation(libs.debug)

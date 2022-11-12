@@ -6,6 +6,7 @@ object versions {
     const val lifecycle = "2.5.1"
     const val mockk = "1.12.5"
     const val coroutines = "1.6.4"
+    const val dagger = "2.43.2"
 
 }
 
@@ -22,6 +23,12 @@ object libs {
         "androidx.navigation:navigation-compose:2.5.1",
         "io.coil-kt:coil-compose:2.2.0"
     )
+    const val dagger =
+        "com.google.dagger:dagger:${versions.dagger}"
+
+    const val daggerCompiler =
+        "com.google.dagger:dagger-compiler:${versions.dagger}"
+
     val unitTests = listOf(
         "junit:junit:4.13.2",
         "io.mockk:mockk:${versions.mockk}",

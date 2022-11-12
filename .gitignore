@@ -4,6 +4,12 @@
 /.idea
 .DS_Store
 /build
+/app/build
+/buildSrc/.gradle
+/buildSrc/build
+/common/build
+/main/api/build
+/main/impl/build
 /captures
 .externalNativeBuild
 .cxx
