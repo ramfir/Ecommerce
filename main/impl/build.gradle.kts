@@ -25,6 +25,9 @@ dependencies {
     // ===== compose =====
     implementation(libs.compose)
 
+    // ===== accompanist pager =====
+    implementation(libs.accompanistPager)
+
     // ===== dagger =====
     implementation(libs.dagger)
     kapt(libs.daggerCompiler)

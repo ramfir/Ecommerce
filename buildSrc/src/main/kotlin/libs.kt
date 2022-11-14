@@ -1,3 +1,5 @@
+import versions.accompanist
+
 object versions {
     const val ksp = "1.7.10-1.0.6"
     const val core = "1.7.0"
@@ -7,7 +9,7 @@ object versions {
     const val mockk = "1.12.5"
     const val coroutines = "1.6.4"
     const val dagger = "2.43.2"
-
+    const val accompanist = "0.25.0"
 }
 
 object libs {
@@ -22,6 +24,10 @@ object libs {
         "androidx.activity:activity-compose:1.5.1",
         "androidx.navigation:navigation-compose:2.5.1",
         "io.coil-kt:coil-compose:2.2.0"
+    )
+    val accompanistPager = listOf(
+        "com.google.accompanist:accompanist-pager:$accompanist",
+        "com.google.accompanist:accompanist-pager-indicators:$accompanist"
     )
     const val dagger =
         "com.google.dagger:dagger:${versions.dagger}"

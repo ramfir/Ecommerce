@@ -1,8 +1,31 @@
 package com.firdavs.common.ui.theme
 
+import androidx.compose.material.Colors
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-val Purple200 = Color(0xFFBB86FC)
-val Purple500 = Color(0xFF6200EE)
-val Purple700 = Color(0xFF3700B3)
+val Purple200 = Color(0xFFFF6E4E)
+val Purple500 = Color(0xFFFD5E3B)
+val Purple700 = Color(0xFFFF3C11)
 val Teal200 = Color(0xFF03DAC5)
+val White200 = Color(0xFFF8F8F8)
+
+val Colors.black200: Color
+    @Composable
+    get() = Color(0xFF010035)
+
+val Colors.black200alpha25: Color
+    @Composable
+    get() = Color(0x80010035)
+
+val Colors.black25alpha: Color
+    @Composable
+    get() = Color(0x40000000)
+
+val Colors.grey: Color
+    @Composable
+    get() = Color(0xFFB3B3B3)
+
+val Colors.grey200: Color
+    @Composable
+    get() = Color(0xFFCCCCCC)
