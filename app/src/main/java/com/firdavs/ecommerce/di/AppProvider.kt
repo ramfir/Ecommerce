@@ -2,8 +2,9 @@ package com.firdavs.ecommerce.di
 
 import androidx.compose.runtime.compositionLocalOf
 import com.firdavs.common.Destinations
+import com.firdavs.common.di.CommonProvider
 
-interface AppProvider {
+interface AppProvider : CommonProvider {
 
     val destinations: Destinations
 }

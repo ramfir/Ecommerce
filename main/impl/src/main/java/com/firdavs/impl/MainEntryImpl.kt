@@ -5,6 +5,9 @@ import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import com.firdavs.api.MainEntry
 import com.firdavs.common.Destinations
+import com.firdavs.common.di.LocalCommonProvider
+import com.firdavs.common.di.injectedViewModel
+import com.firdavs.impl.di.DaggerMainComponent
 import com.firdavs.impl.ui.MainScreen
 import javax.inject.Inject
 
@@ -16,6 +19,13 @@ class MainEntryImpl @Inject constructor() : MainEntry() {
         destinations: Destinations,
         backStackEntry: NavBackStackEntry,
     ) {
-        MainScreen()
+        val commonProvider = LocalCommonProvider.current
+        val viewModel = injectedViewModel {
+            DaggerMainComponent.builder()
+                .commonProvider(commonProvider)
+                .build()
+                .viewModel
+        }
+        MainScreen(viewModel)
     }
 }
