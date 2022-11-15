@@ -1,13 +1,13 @@
 plugins {
     id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    kotlin("kapt")
+    id("kotlin-android")
     // Precompiled plugin with the base android configuration.
     // Declared in buildSrc/.../android-config.gradle.kts.
     `android-config`
 }
 
 android {
+
     // ===== compose =====
     buildFeatures.compose = true
     composeOptions {
@@ -16,6 +16,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":common"))
 
     // ===== android =====
     implementation(libs.android)
@@ -23,10 +24,10 @@ dependencies {
     // ===== compose =====
     implementation(libs.compose)
 
-    // ===== kotlin =====
-    implementation(libs.coroutines)
+    // ===== tests =====
+    testImplementation(libs.unitTests)
+    androidTestImplementation(libs.androidTests)
 
-    // ===== dagger =====
-    implementation(libs.dagger)
-    kapt(libs.daggerCompiler)
+    // ===== debug =====
+    debugImplementation(libs.debug)
 }

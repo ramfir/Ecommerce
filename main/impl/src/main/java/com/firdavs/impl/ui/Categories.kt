@@ -20,8 +20,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.firdavs.common.domain.Category
-import com.firdavs.common.domain.CategoryList
+import com.firdavs.common.domain.model.Category
+import com.firdavs.common.domain.model.CategoryList
 import com.firdavs.common.ui.theme.black200
 import com.firdavs.common.ui.theme.black25alpha
 import com.firdavs.common.ui.theme.grey

@@ -24,7 +24,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
-import com.firdavs.common.domain.BestSellerEntity
+import com.firdavs.common.domain.model.BestSellerEntity
 import com.firdavs.common.ui.theme.black200
 import com.firdavs.common.ui.theme.grey200
 import com.firdavs.ecommerce.main.impl.R

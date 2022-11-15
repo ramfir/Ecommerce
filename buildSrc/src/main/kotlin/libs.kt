@@ -10,6 +10,8 @@ object versions {
     const val coroutines = "1.6.4"
     const val dagger = "2.43.2"
     const val accompanist = "0.25.0"
+    const val retrofit = "2.9.0"
+    const val moshi = "1.14.0"
 }
 
 object libs {
@@ -29,6 +31,17 @@ object libs {
         "com.google.accompanist:accompanist-pager:$accompanist",
         "com.google.accompanist:accompanist-pager-indicators:$accompanist"
     )
+    const val coroutines =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}"
+
+    val retrofit = listOf(
+        "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+        "com.squareup.retrofit2:converter-moshi:${versions.retrofit}",
+        "com.squareup.okhttp3:logging-interceptor:4.10.0",
+        "com.squareup.moshi:moshi-kotlin:${versions.moshi}",
+        "com.squareup.moshi:moshi-adapters:${versions.moshi}",
+    )
+
     const val dagger =
         "com.google.dagger:dagger:${versions.dagger}"
 

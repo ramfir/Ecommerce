@@ -1,16 +1,30 @@
 package com.firdavs.impl
 
 import androidx.lifecycle.ViewModel
-import com.firdavs.common.domain.BestSellerEntity
-import com.firdavs.common.domain.Category
-import com.firdavs.common.domain.CategoryList
-import com.firdavs.common.domain.HotSaleEntity
+import androidx.lifecycle.viewModelScope
+import com.firdavs.common.domain.model.BestSellerEntity
+import com.firdavs.common.domain.model.Category
+import com.firdavs.common.domain.model.CategoryList
+import com.firdavs.common.domain.model.HotSaleEntity
 import com.firdavs.ecommerce.main.impl.R
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(): ViewModel() {
+class MainViewModel @Inject constructor(
+    getProducts: GetProducts
+): ViewModel() {
+
+    init {
+        getProducts()
+            .onEach {
+                hotSales.value = it.hotSales
+                bestSellers.value = it.bestSellers
+            }
+            .launchIn(viewModelScope)
+    }
 
     val _categories = MutableStateFlow(
         CategoryList(
@@ -29,7 +43,7 @@ class MainViewModel @Inject constructor(): ViewModel() {
     )
     val categories: StateFlow<CategoryList> = _categories
 
-    val _hotSales = MutableStateFlow(
+    /*val _hotSales = MutableStateFlow(
         listOf(
             HotSaleEntity(
                 1,
@@ -57,9 +71,10 @@ class MainViewModel @Inject constructor(): ViewModel() {
             ),
         )
     )
-    val hotSales: StateFlow<List<HotSaleEntity>> = _hotSales
+    val hotSales: StateFlow<List<HotSaleEntity>> = _hotSales*/
+    val hotSales = MutableStateFlow<List<HotSaleEntity>>(emptyList())
 
-    val _bestSellers = MutableStateFlow(
+    /*val _bestSellers = MutableStateFlow(
         listOf(
             BestSellerEntity(
                 1,
@@ -119,7 +134,8 @@ class MainViewModel @Inject constructor(): ViewModel() {
             ),
         )
     )
-    val bestSellers: StateFlow<List<BestSellerEntity>> = _bestSellers
+    val bestSellers: StateFlow<List<BestSellerEntity>> = _bestSellers*/
+    val bestSellers = MutableStateFlow<List<BestSellerEntity>>(emptyList())
 
     fun selectCategory(id: Int) {
         _categories.value = _categories.value.copy(selectedId = id)

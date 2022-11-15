@@ -8,6 +8,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
+import com.firdavs.api.LocalDataProvider
 import com.firdavs.common.di.LocalCommonProvider
 import com.firdavs.common.ui.theme.EcommerceTheme
 import com.firdavs.ecommerce.di.LocalAppProvider
@@ -23,6 +24,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     CompositionLocalProvider(
                         LocalAppProvider provides application.appProvider,
+                        LocalDataProvider provides application.appProvider,
                         LocalCommonProvider provides application.appProvider
                     ) {
                         Navigation()

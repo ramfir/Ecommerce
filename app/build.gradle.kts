@@ -24,7 +24,9 @@ android {
 
 dependencies {
     implementation(project(":main:impl"))
+    implementation(project(":data:impl"))
     implementation(project(":common"))
+
     // ===== android =====
     implementation(libs.android)
 

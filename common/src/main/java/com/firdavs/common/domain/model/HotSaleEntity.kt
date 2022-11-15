@@ -1,4 +1,4 @@
-package com.firdavs.common.domain
+package com.firdavs.common.domain.model
 
 data class HotSaleEntity(
     val id: Int,

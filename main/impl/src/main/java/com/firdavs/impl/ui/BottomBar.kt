@@ -7,7 +7,6 @@ import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -29,7 +28,7 @@ internal fun BottomBar(modifier: Modifier) {
                 MaterialTheme.colors.black200,
                 RoundedCornerShape(30.dp)
             ),
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = CenterVertically
     ) {
         Row(
             modifier = Modifier.weight(2f),

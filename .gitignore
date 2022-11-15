@@ -10,6 +10,8 @@
 /common/build
 /main/api/build
 /main/impl/build
+/data/api/build
+/data/impl/build
 /captures
 .externalNativeBuild
 .cxx
