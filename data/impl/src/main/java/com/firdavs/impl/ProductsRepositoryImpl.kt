@@ -1,6 +1,7 @@
 package com.firdavs.impl
 
 import com.firdavs.common.domain.ProductsRepository
+import com.firdavs.common.domain.model.ProductDetails
 import com.firdavs.common.domain.model.Products
 import com.firdavs.impl.network.EcommerceApi
 import com.firdavs.impl.network.model.toDomainModel
@@ -29,5 +30,23 @@ class ProductsRepositoryImpl @Inject constructor(
         }
         val domainProducts = networkProducts.toDomainModel()
         return domainProducts
+    }
+
+    override fun getProductDetails(): Flow<ProductDetails> =
+        flow {
+            val productDetails = getProductDetailsFromNetwork()
+            if (productDetails != null) {
+                emit(productDetails)
+            }
+        }
+
+    internal suspend fun getProductDetailsFromNetwork(): ProductDetails? {
+        val networkProductDetails = try {
+            networkApi.getProductDetails()
+        } catch (e: UnknownHostException) {
+            return null
+        }
+        val domainProductDetails = networkProductDetails.toDomainModel()
+        return domainProductDetails
     }
 }

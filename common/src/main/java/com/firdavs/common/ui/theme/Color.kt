@@ -29,3 +29,11 @@ val Colors.grey: Color
 val Colors.grey200: Color
     @Composable
     get() = Color(0xFFCCCCCC)
+
+val Colors.grey500: Color
+    @Composable
+    get() = Color(0xFFB7B7B7)
+
+val Colors.yellow200: Color
+    @Composable
+    get() = Color(0xFFFFB800)

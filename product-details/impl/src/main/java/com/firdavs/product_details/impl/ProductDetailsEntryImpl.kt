@@ -1,44 +1,42 @@
-package com.firdavs.impl
+package com.firdavs.product_details.impl
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import com.firdavs.api.LocalDataProvider
-import com.firdavs.api.MainEntry
 import com.firdavs.api.ProductDetailsEntry
 import com.firdavs.common.Destinations
 import com.firdavs.common.di.LocalCommonProvider
 import com.firdavs.common.di.injectedViewModel
-import com.firdavs.common.find
-import com.firdavs.impl.di.DaggerMainComponent
-import com.firdavs.impl.ui.MainScreen
+import com.firdavs.product_details.impl.di.DaggerProductDetailsComponent
+import com.firdavs.product_details.impl.ui.ProductDetailsScreen
 import javax.inject.Inject
 
-class MainEntryImpl @Inject constructor(): MainEntry() {
+class ProductDetailsEntryImpl @Inject constructor() : ProductDetailsEntry() {
 
     @Composable
     override fun Composable(
         navController: NavController,
         destinations: Destinations,
-        backStackEntry: NavBackStackEntry,
+        backStackEntry: NavBackStackEntry
     ) {
         val dataProvider = LocalDataProvider.current
         val commonProvider = LocalCommonProvider.current
         val viewModel = injectedViewModel {
-            DaggerMainComponent.builder()
+            DaggerProductDetailsComponent.builder()
                 .dataProvider(dataProvider)
                 .commonProvider(commonProvider)
                 .build()
                 .viewModel
         }
-        MainScreen(
+
+        val productId = backStackEntry.arguments?.getInt(ARG_PRODUCT_ID)!!
+
+
+        ProductDetailsScreen(
+            productId,
             viewModel,
-            onProductClick = { product ->
-                val destination = destinations
-                    .find<ProductDetailsEntry>()
-                    .destination(product.id)
-                navController.navigate(destination)
-            }
+            navController::popBackStack
         )
     }
 }

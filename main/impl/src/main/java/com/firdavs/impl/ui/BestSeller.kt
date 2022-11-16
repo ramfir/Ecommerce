@@ -30,7 +30,10 @@ import com.firdavs.common.ui.theme.grey200
 import com.firdavs.ecommerce.main.impl.R
 
 @Composable
-internal fun BestSeller(bestSellers: List<BestSellerEntity>) {
+internal fun BestSeller(
+    bestSellers: List<BestSellerEntity>,
+    onProductClick: (BestSellerEntity) -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -64,19 +67,20 @@ internal fun BestSeller(bestSellers: List<BestSellerEntity>) {
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             items(bestSellers) { bestSeller ->
-                BestSellerItem(bestSeller)
+                BestSellerItem(bestSeller, onProductClick)
             }
         }
     }
 }
 
 @Composable
-private fun BestSellerItem(bestSeller: BestSellerEntity) {
+private fun BestSellerItem(bestSeller: BestSellerEntity, onProductClick: (BestSellerEntity) -> Unit) {
     var isFavorite by remember { mutableStateOf(bestSeller.isFavorites) }
     Column(
         modifier = Modifier
             .size(height = 215.dp, width = 171.dp)
             .background(Color.White, RoundedCornerShape(10.dp))
+            .clickable { onProductClick(bestSeller) }
             .padding(8.dp)
     ) {
         Box {

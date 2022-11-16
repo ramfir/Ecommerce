@@ -17,6 +17,7 @@ android {
 
 dependencies {
     api(project(":main:api"))
+    api(project(":product-details:api"))
     implementation(project(":data:api"))
     implementation(project(":common"))
 

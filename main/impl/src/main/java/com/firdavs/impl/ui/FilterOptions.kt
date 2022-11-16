@@ -29,7 +29,7 @@ internal fun FilterOptions(sheetState: BottomSheetState, coroutineScope: Corouti
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .height(350.dp)
+            .height(370.dp)
             .background(Color.White, RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp))
     ) {
         Row(

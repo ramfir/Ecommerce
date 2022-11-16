@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.firdavs.api.MainEntry
+import com.firdavs.api.ProductDetailsEntry
 import com.firdavs.common.find
 import com.firdavs.ecommerce.di.LocalAppProvider
 
@@ -16,10 +17,14 @@ fun Navigation() {
     val destinations = LocalAppProvider.current.destinations
 
     val mainScreen = destinations.find<MainEntry>()
-    
+    val productDetailsScreen = destinations.find<ProductDetailsEntry>()
+
     Box(Modifier.fillMaxSize()) {
         NavHost(navController = navController, startDestination = mainScreen.destination()) {
             with(mainScreen) {
+                composable(navController, destinations)
+            }
+            with(productDetailsScreen) {
                 composable(navController, destinations)
             }
         }

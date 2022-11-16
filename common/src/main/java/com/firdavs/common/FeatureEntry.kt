@@ -33,11 +33,6 @@ interface ComposableFeatureEntry : FeatureEntry {
     )
 }
 
-interface AggregateFeatureEntry : FeatureEntry {
-
-    fun NavGraphBuilder.navigation(navController: NavController, destinations: Destinations)
-}
-
 inline fun <reified T : FeatureEntry> Destinations.find(): T =
     findOrNull() ?: error("Unable to find '${T::class.java}' destination.")
 

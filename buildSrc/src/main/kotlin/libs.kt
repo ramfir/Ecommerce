@@ -23,6 +23,7 @@ object libs {
         "androidx.compose.ui:ui:${versions.compose}",
         "androidx.compose.material:material:${versions.compose}",
         "androidx.compose.ui:ui-tooling-preview:${versions.compose}",
+        "androidx.compose.ui:ui-util:${versions.compose}",
         "androidx.activity:activity-compose:1.5.1",
         "androidx.navigation:navigation-compose:2.5.1",
         "io.coil-kt:coil-compose:2.2.0"

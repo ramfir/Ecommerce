@@ -12,6 +12,8 @@
 /main/impl/build
 /data/api/build
 /data/impl/build
+/product-details/api/build
+/product-details/impl/build
 /captures
 .externalNativeBuild
 .cxx

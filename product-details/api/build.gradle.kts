@@ -7,6 +7,7 @@ plugins {
 }
 
 android {
+
     // ===== compose =====
     buildFeatures.compose = true
     composeOptions {
@@ -16,7 +17,6 @@ android {
 
 dependencies {
     implementation(project(":common"))
-    implementation(project(":product-details:api"))
 
     // ===== android =====
     implementation(libs.android)
