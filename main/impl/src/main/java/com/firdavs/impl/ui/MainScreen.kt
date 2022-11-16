@@ -15,7 +15,11 @@ import com.firdavs.common.ui.theme.*
 import com.firdavs.impl.MainViewModel
 
 @Composable
-fun MainScreen(viewModel: MainViewModel, onProductClick: (BestSellerEntity) -> Unit) {
+fun MainScreen(
+    viewModel: MainViewModel,
+    onProductClick: (BestSellerEntity) -> Unit,
+    onCartClick: () -> Unit
+) {
     val categories by viewModel.categories.collectAsState()
     val hotSales by viewModel.hotSales.collectAsState()
     val bestSellers by viewModel.bestSellers.collectAsState()
@@ -45,7 +49,7 @@ fun MainScreen(viewModel: MainViewModel, onProductClick: (BestSellerEntity) -> U
                 HotSales(hotSales)
                 BestSeller(bestSellers, onProductClick)
             }
-            BottomBar(Modifier.align(BottomCenter))
+            BottomBar(Modifier.align(BottomCenter), onCartClick)
         }
     }
 }

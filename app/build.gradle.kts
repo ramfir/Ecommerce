@@ -25,6 +25,7 @@ android {
 dependencies {
     implementation(project(":main:impl"))
     implementation(project(":product-details:impl"))
+    implementation(project(":cart:impl"))
     implementation(project(":data:impl"))
     implementation(project(":common"))
 

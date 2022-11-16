@@ -14,6 +14,8 @@
 /data/impl/build
 /product-details/api/build
 /product-details/impl/build
+/cart/api/build
+/cart/impl/build
 /captures
 .externalNativeBuild
 .cxx

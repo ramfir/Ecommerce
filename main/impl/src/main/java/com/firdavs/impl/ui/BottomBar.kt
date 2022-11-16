@@ -1,6 +1,7 @@
 package com.firdavs.impl.ui
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
@@ -19,7 +20,7 @@ import com.firdavs.common.ui.theme.black200
 import com.firdavs.ecommerce.main.impl.R
 
 @Composable
-internal fun BottomBar(modifier: Modifier) {
+internal fun BottomBar(modifier: Modifier, onCartClick: () -> Unit) {
     Row(
         modifier = modifier
             .fillMaxWidth()
@@ -27,7 +28,8 @@ internal fun BottomBar(modifier: Modifier) {
             .background(
                 MaterialTheme.colors.black200,
                 RoundedCornerShape(30.dp)
-            ),
+            )
+            .clickable {},
         verticalAlignment = CenterVertically
     ) {
         Row(
@@ -51,7 +53,7 @@ internal fun BottomBar(modifier: Modifier) {
             )
         }
         Icon(
-            modifier = Modifier.weight(1f),
+            modifier = Modifier.weight(1f).clickable(onClick = onCartClick),
             painter = painterResource(id = R.drawable.ic_cart),
             contentDescription = null,
             tint = Color.White

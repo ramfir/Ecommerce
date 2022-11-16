@@ -1,13 +1,13 @@
 plugins {
     id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    kotlin("kapt")
+    id("kotlin-android")
     // Precompiled plugin with the base android configuration.
     // Declared in buildSrc/.../android-config.gradle.kts.
     `android-config`
 }
 
 android {
+
     // ===== compose =====
     buildFeatures.compose = true
     composeOptions {
@@ -16,10 +16,6 @@ android {
 }
 
 dependencies {
-    api(project(":main:api"))
-    api(project(":product-details:api"))
-    api(project(":cart:api"))
-    implementation(project(":data:api"))
     implementation(project(":common"))
 
     // ===== android =====
@@ -27,14 +23,5 @@ dependencies {
 
     // ===== compose =====
     implementation(libs.compose)
-
-    // ===== accompanist pager =====
-    implementation(libs.accompanistPager)
-
-    // ===== dagger =====
-    implementation(libs.dagger)
-    kapt(libs.daggerCompiler)
-
-    // ===== debug =====
     debugImplementation(libs.debug)
 }
