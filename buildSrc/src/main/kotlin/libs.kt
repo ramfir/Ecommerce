@@ -12,6 +12,7 @@ object versions {
     const val accompanist = "0.25.0"
     const val retrofit = "2.9.0"
     const val moshi = "1.14.0"
+    const val splashAPI = "1.0.0"
 }
 
 object libs {
@@ -48,6 +49,9 @@ object libs {
 
     const val daggerCompiler =
         "com.google.dagger:dagger-compiler:${versions.dagger}"
+
+    const val splashAPI =
+        "androidx.core:core-splashscreen:${versions.splashAPI}"
 
     val unitTests = listOf(
         "junit:junit:4.13.2",

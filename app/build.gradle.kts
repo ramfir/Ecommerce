@@ -35,6 +35,9 @@ dependencies {
     // ===== compose =====
     implementation(libs.compose)
 
+    // ===== Splash API =====
+    implementation(libs.splashAPI)
+
     // ===== dagger =====
     implementation(libs.dagger)
     kapt(libs.daggerCompiler)
