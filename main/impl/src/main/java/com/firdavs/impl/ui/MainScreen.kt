@@ -23,6 +23,7 @@ fun MainScreen(
     val categories by viewModel.categories.collectAsState()
     val hotSales by viewModel.hotSales.collectAsState()
     val bestSellers by viewModel.bestSellers.collectAsState()
+    val cartProductsCount by viewModel.cartProductsCount.collectAsState()
 
     val sheetState = rememberBottomSheetState(initialValue = BottomSheetValue.Collapsed)
     val scaffoldState = rememberBottomSheetScaffoldState(bottomSheetState = sheetState)
@@ -49,7 +50,7 @@ fun MainScreen(
                 HotSales(hotSales)
                 BestSeller(bestSellers, onProductClick)
             }
-            BottomBar(Modifier.align(BottomCenter), onCartClick)
+            BottomBar(Modifier.align(BottomCenter), onCartClick, cartProductsCount)
         }
     }
 }

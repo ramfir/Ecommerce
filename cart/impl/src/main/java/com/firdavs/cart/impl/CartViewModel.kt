@@ -21,6 +21,6 @@ class CartViewModel @Inject constructor(
             .launchIn(viewModelScope)
     }
 
-    val _cartProducts = MutableStateFlow<CartProducts?>(null)
+    private val _cartProducts = MutableStateFlow<CartProducts?>(null)
     val cartProducts: StateFlow<CartProducts?> = _cartProducts
 }

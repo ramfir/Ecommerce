@@ -17,7 +17,8 @@ import com.firdavs.common.ui.theme.black200
 
 @Composable
 fun CartScreen(
-    viewModel: CartViewModel
+    viewModel: CartViewModel,
+    onBackClick: () -> Unit
 ) {
     val cartProducts by viewModel.cartProducts.collectAsState()
     Column(
@@ -25,7 +26,7 @@ fun CartScreen(
             .fillMaxSize()
             .padding(top = 8.dp)
     ) {
-        TopBar()
+        TopBar(onBackClick)
         Text(
             modifier = Modifier
                 .padding(start = 16.dp)

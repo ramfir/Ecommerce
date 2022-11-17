@@ -6,11 +6,10 @@ import androidx.navigation.NavController
 import com.firdavs.api.CartEntry
 import com.firdavs.api.LocalDataProvider
 import com.firdavs.cart.impl.di.DaggerCartComponent
+import com.firdavs.cart.impl.ui.CartScreen
 import com.firdavs.common.Destinations
 import com.firdavs.common.di.LocalCommonProvider
 import com.firdavs.common.di.injectedViewModel
-import com.firdavs.common.find
-import com.firdavs.cart.impl.ui.CartScreen
 import javax.inject.Inject
 
 class CartEntryImpl @Inject constructor(): CartEntry() {
@@ -31,6 +30,6 @@ class CartEntryImpl @Inject constructor(): CartEntry() {
                 .viewModel
         }
 
-        CartScreen(viewModel)
+        CartScreen(viewModel, navController::popBackStack)
     }
 }

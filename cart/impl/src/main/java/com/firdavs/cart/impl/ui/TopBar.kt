@@ -16,7 +16,7 @@ import com.firdavs.common.ui.theme.black200
 import com.firdavs.ecommerce.cart.impl.R
 
 @Composable
-internal fun TopBar() {
+internal fun TopBar(onBackClick: () -> Unit) {
     Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp)) {
         Button(
             modifier = Modifier
@@ -25,7 +25,7 @@ internal fun TopBar() {
             shape = RoundedCornerShape(10.dp),
             contentPadding = PaddingValues(0.dp),
             colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.black200),
-            onClick = {}
+            onClick = onBackClick
         ) {
             Icon(
                 painter = painterResource(id = R.drawable.ic_arrow_back),

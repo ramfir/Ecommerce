@@ -21,6 +21,6 @@ class ProductDetailsViewModel @Inject constructor(
             .launchIn(viewModelScope)
     }
 
-    val _productDetails = MutableStateFlow<ProductDetails?>(null)
+    private val _productDetails = MutableStateFlow<ProductDetails?>(null)
     val productDetails: StateFlow<ProductDetails?> = _productDetails
 }

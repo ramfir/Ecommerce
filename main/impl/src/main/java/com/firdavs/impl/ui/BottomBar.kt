@@ -3,12 +3,15 @@ package com.firdavs.impl.ui
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Alignment.Companion.CenterVertically
+import androidx.compose.ui.Alignment.Companion.TopEnd
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -20,7 +23,7 @@ import com.firdavs.common.ui.theme.black200
 import com.firdavs.ecommerce.main.impl.R
 
 @Composable
-internal fun BottomBar(modifier: Modifier, onCartClick: () -> Unit) {
+internal fun BottomBar(modifier: Modifier, onCartClick: () -> Unit, cartProductsCount: Int) {
     Row(
         modifier = modifier
             .fillMaxWidth()
@@ -52,14 +55,38 @@ internal fun BottomBar(modifier: Modifier, onCartClick: () -> Unit) {
                 fontWeight = FontWeight.Bold
             )
         }
+        Box(
+            modifier = Modifier
+                .weight(1f)
+                .clickable(onClick = onCartClick)
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(38.dp)
+                    .align(Center)
+            ) {
+                Icon(
+                    modifier = Modifier.align(Center),
+                    painter = painterResource(id = R.drawable.ic_cart),
+                    contentDescription = null,
+                    tint = Color.White
+                )
+                if (cartProductsCount > 0) {
+                    Text(
+                        modifier = Modifier.align(TopEnd).size(16.dp).background(MaterialTheme.colors.primary, CircleShape),
+                        text = "$cartProductsCount",
+                        color = Color.White,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 12.sp,
+                        textAlign = TextAlign.Center
+                    )
+                }
+            }
+        }
         Icon(
-            modifier = Modifier.weight(1f).clickable(onClick = onCartClick),
-            painter = painterResource(id = R.drawable.ic_cart),
-            contentDescription = null,
-            tint = Color.White
-        )
-        Icon(
-            modifier = Modifier.weight(1f).size(18.dp),
+            modifier = Modifier
+                .weight(1f)
+                .size(18.dp),
             painter = painterResource(id = R.drawable.ic_favorite_not),
             contentDescription = null,
             tint = Color.White

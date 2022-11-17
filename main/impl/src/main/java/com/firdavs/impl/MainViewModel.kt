@@ -14,7 +14,8 @@ import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor(
-    getProducts: GetProducts
+    getProducts: GetProducts,
+    getCartProductsCount: GetCartProductsCount,
 ): ViewModel() {
 
     init {
@@ -24,9 +25,15 @@ class MainViewModel @Inject constructor(
                 _bestSellers.value = it.bestSellers
             }
             .launchIn(viewModelScope)
+
+        getCartProductsCount()
+            .onEach {
+                _cartProductsCount.value = it
+            }
+            .launchIn(viewModelScope)
     }
 
-    val _categories = MutableStateFlow(
+    private val _categories = MutableStateFlow(
         CategoryList(
             categories = listOf(
                 Category(1, "Phones", R.drawable.ic_phone),
@@ -43,11 +50,14 @@ class MainViewModel @Inject constructor(
     )
     val categories: StateFlow<CategoryList> = _categories
 
-    val _hotSales = MutableStateFlow<List<HotSaleEntity>>(emptyList())
+    private val _hotSales = MutableStateFlow<List<HotSaleEntity>>(emptyList())
     val hotSales: StateFlow<List<HotSaleEntity>> = _hotSales
 
-    val _bestSellers = MutableStateFlow<List<BestSellerEntity>>(emptyList())
+    private val _bestSellers = MutableStateFlow<List<BestSellerEntity>>(emptyList())
     val bestSellers: StateFlow<List<BestSellerEntity>> = _bestSellers
+
+    private val _cartProductsCount = MutableStateFlow(0)
+    val cartProductsCount: StateFlow<Int> = _cartProductsCount
 
     fun selectCategory(id: Int) {
         _categories.value = _categories.value.copy(selectedId = id)
