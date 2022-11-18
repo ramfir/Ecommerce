@@ -1,9 +1,9 @@
 package com.firdavs.impl.di
 
-import com.firdavs.impl.GetCartProductsCount
-import com.firdavs.impl.GetCartProductsCountUseCase
-import com.firdavs.impl.GetProducts
-import com.firdavs.impl.GetProductsUseCase
+import com.firdavs.impl.domain.GetCartProductsCount
+import com.firdavs.impl.domain.GetCartProductsCountUseCase
+import com.firdavs.impl.domain.GetProducts
+import com.firdavs.impl.domain.GetProductsUseCase
 import dagger.Binds
 import dagger.Module
 

@@ -4,7 +4,7 @@ import com.firdavs.api.DataProvider
 import com.firdavs.api.ProductDetailsProvider
 import com.firdavs.common.di.CommonProvider
 import com.firdavs.common.di.FeatureScoped
-import com.firdavs.product_details.impl.ProductDetailsViewModel
+import com.firdavs.product_details.impl.presentation.ProductDetailsViewModel
 import dagger.Component
 
 @FeatureScoped

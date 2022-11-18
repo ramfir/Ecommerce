@@ -4,7 +4,7 @@ import com.firdavs.api.DataProvider
 import com.firdavs.api.MainProvider
 import com.firdavs.common.di.CommonProvider
 import com.firdavs.common.di.FeatureScoped
-import com.firdavs.impl.MainViewModel
+import com.firdavs.impl.presentation.MainViewModel
 import dagger.Component
 
 @FeatureScoped
